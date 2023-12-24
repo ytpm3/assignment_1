@@ -1,20 +1,20 @@
 package models;
 import java.util.ArrayList;
 public class Shape {
-    //Store points forming the shape
+    // Collection to store the points forming the shape
     ArrayList<Point> points = new ArrayList<>();
 
-    //Adding a point to the list
+    // Method to add a point to the list
     public void addPoint(Point point) {
         points.add(point);
     }
 
-    //Calculating the perimeter
+    // Method to calculate the perimeter of the shape
     public double calculatePerimeter() {
         double perimeter = 0;
         int size = points.size();
 
-        //Calculating the distance to the next point
+        // Iterating through points and calculating distances
         for (int i = 0; i < size; i++) {
             Point currentPoint = points.get(i);
             Point nextPoint = points.get((i + 1) % size);
@@ -25,7 +25,7 @@ public class Shape {
         return perimeter;
     }
 
-    //Average side length
+    // Method to calculate the average side length of the shape
     public double getAverageSide() {
         int size = points.size();
         if (size == 0) {
@@ -35,11 +35,11 @@ public class Shape {
         return calculatePerimeter() / size;
     }
 
-    //The longest side
+    // Method to find the length of the longest side in the shape
     public double getLongestSide() {
         double longestSide = 0;
 
-        //Finding the length of the current side
+        // Iterating through points and finding the longest side
         for (int i = 0; i < points.size(); i++) {
             Point currentPoint = points.get(i);
             Point nextPoint = points.get((i + 1) % points.size());
